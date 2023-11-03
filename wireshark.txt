@@ -1,0 +1,16 @@
+a.	Capture all TCP traffic to/from Facebook, during the time when you log in to your Facebook account 
+-->   tcp && ip.addr == 157.240.242.60
+
+b.	Capture all HTTP traffic to/from Facebook (other website), when you log in to your Facebook account 
+-->	http && ip.addr== pc ip address && ip.addr== pc ip address
+
+c.	Write a DISPLAY filter expression to count all TCP packets (captured under item #1) that have the flags SYN, PSH, and RST set. Show 	the fraction of packets that had each flag set. 
+-->	tcp.flags.reset==1 && ip.addr== pc ip address && ip.addr== 72.52.251.71
+	tcp.flags.syn==1 && ip.addr== pc ip address && ip.addr== 72.52.251.71
+	tcp.flags.push==1 && ip.addr== pc ip address && ip.addr== 72.52.251.71
+
+d.	Count how many TCP packets you received from / sent to Facebook (other website), and how many of each were also HTTP packets.
+-->	http && tcp && ip.addr== pc id address && ip.addr==72.52.251.71
+
+SSL  -  tcp.stream eq 34 && ssl	
+
